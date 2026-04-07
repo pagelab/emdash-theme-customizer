@@ -1,0 +1,11 @@
+{
+  "name": "@dashstyle/theme-customizer-integration",
+  "version": "1.0.0",
+  "type": "module",
+  "exports": {
+    ".": "./src/theme-customizer-runtime.ts"
+  },
+  "peerDependencies": {
+    "emdash": "^0.1.0"
+  }
+}

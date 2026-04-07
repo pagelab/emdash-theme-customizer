@@ -1,0 +1,18 @@
+---
+import { buildThemeCustomizerCSS } from "./theme-customizer-runtime";
+
+let themeCSS = "";
+try {
+	themeCSS = await buildThemeCustomizerCSS({
+		pluginId: "theme-customizer",
+		addImportant: true,
+	});
+} catch {
+	// Keep layout resilient if runtime/db is unavailable.
+}
+---
+
+<head>
+	<!-- Other head tags... -->
+	{themeCSS && <style data-theme-customizer set:html={themeCSS} />}
+</head>
