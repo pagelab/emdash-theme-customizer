@@ -1,31 +1,35 @@
-# Theme Customizer Starter (Portable)
+# EmDash Theme Customizer Starter
 
-Projeto portatil para levar o plugin de Theme Customizer para qualquer projeto de tema com EmDash.
+Starter para acelerar a adocao de customizacao de tema por variaveis CSS em projetos EmDash que seguem as mesmas convencoes de tokens.
+
+## Objetivo
+
+Este repositorio foi estruturado para uso de projeto para projeto (starter de base), mantendo plugin e integracao desacoplados para facilitar migracoes entre temas.
 
 ## Estrutura
 
-- `plugin/`: pacote do plugin (admin + persistencia + hooks)
-- `integration/`: helper de runtime para injetar CSS em qualquer layout
-- `docs/`: instrucoes operacionais e checklist de migracao
+- `plugin/`: plugin EmDash (UI administrativa, persistencia de overrides, injecao de CSS)
+- `integration/`: helper de runtime para aplicar overrides no frontend
+- `docs/`: guias de instalacao, integracao e migracao
 
-## Quick Start
+## Fluxo de uso
 
-1. Copie `plugin/` para o monorepo do projeto destino.
-2. Registre `themeCustomizer()` no `astro.config.mjs`.
-3. Use o helper de `integration/` no layout principal para injetar o style de override no final do `<head>`.
-4. Siga os passos em `docs/INSTALL_AND_OPERATION.md`.
+1. Levar `plugin/` para o workspace do tema alvo.
+2. Registrar `themeCustomizer()` na configuracao do EmDash.
+3. Integrar o helper de `integration/` no layout principal para injetar o CSS final de overrides.
+4. Validar com o checklist em `docs/MIGRATION_CHECKLIST.md`.
 
-## Docs
+## Documentacao
 
-- Instalacao e operacao: `docs/INSTALL_AND_OPERATION.md`
-- Integracao para qualquer layout: `docs/ANY_LAYOUT_INTEGRATION.md`
+- Operacao: `docs/INSTALL_AND_OPERATION.md`
+- Integracao em layouts diferentes: `docs/ANY_LAYOUT_INTEGRATION.md`
 - Checklist de migracao: `docs/MIGRATION_CHECKLIST.md`
 
-## Escopo de Portabilidade
+## Escopo
 
-- O pacote `plugin/` cobre admin e persistencia de overrides.
-- O pacote `integration/` cobre aplicacao garantida dos tokens no frontend quando o pipeline de fragments do core nao for suficiente.
+- Incluido: base reutilizavel para times que desenvolvem tema + plugin em paralelo.
+- Nao incluido: fluxo de publicacao em npm como pacote publico.
 
-## Recomendacao
+## Distribuicao
 
-Para novos temas, sempre trate plugin e integracao de layout como dois blocos separados: isso reduz acoplamento e acelera migracoes.
+Este projeto nao e orientado a distribuicao publica em npm no momento. O uso recomendado e como starter interno/versionado por repositorio.
